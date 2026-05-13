@@ -1,7 +1,21 @@
 let gameState = "home";
 let startButtonHover = false;
 let buttonPulse = 0;
-
+var gwaliorFort, jaiVilas, orchha, sanchi, bhimbetka, dhuandhar, marble, ujjain, omkareshwar;
+function preload() {
+  gwaliorFort = loadImage("assets/gwaliorfort.jpeg"), 
+  jaiVilas = loadImage("assets/jaivilas.jpeg"),
+  orchha = loadImage("assets/orchha.jpeg"),
+  sanchi = loadImage("assets/sanchi.jpeg"),
+  bhimbetka = loadImage("assets/bhimbetka.jpeg"),
+  dhuandhar = loadImage("assets/dhuandhar.jpeg"),
+  marble = loadImage("assets/marble.jpeg"),
+  ujjain = loadImage("assets/ujjain.jpeg"),
+  omkareshwar = loadImage("assets/omkareshwar.jpeg");
+    () => console.log("image loaded!"),
+    () => console.log("image FAILED to load")
+  
+}
 function setup() {
   createCanvas(1200, 750);
   textAlign(CENTER, CENTER);
@@ -302,33 +316,33 @@ function drawMapScreen() {
 function drawGwaliorRegion() {
   drawGradientBackground(color(55, 32, 25), color(175, 105, 65));
   regionTitle("GWALIOR REGION");
-  drawPlaceCard(80, 220, "Gwalior Fort");
-  drawPlaceCard(470, 220, "Jai Vilas Palace");
-  drawPlaceCard(860, 220, "Orchha");
+  drawPlaceCard(80, 220, "Gwalior Fort", gwaliorFort);  // pass image here
+  drawPlaceCard(470, 220, "Jai Vilas Palace", jaiVilas);
+  drawPlaceCard(860, 220, "Orchha", orchha);
   backButton();
 }
 
 function drawBhopalRegion() {
   drawGradientBackground(color(18, 48, 78), color(55, 150, 170));
   regionTitle("BHOPAL REGION");
-  drawPlaceCard(180, 220, "Sanchi Stupa");
-  drawPlaceCard(720, 220, "Bhimbetka");
+  drawPlaceCard(180, 220, "Sanchi Stupa", sanchi);
+  drawPlaceCard(720, 220, "Bhimbetka", bhimbetka);
   backButton();
 }
 
 function drawJabalpurRegion() {
   drawGradientBackground(color(20, 68, 55), color(90, 175, 140));
   regionTitle("JABALPUR REGION");
-  drawPlaceCard(180, 220, "Dhuandhar Falls");
-  drawPlaceCard(720, 220, "Marble Rocks");
+  drawPlaceCard(180, 220, "Dhuandhar Falls", dhuandhar);
+  drawPlaceCard(720, 220, "Marble Rocks", marble);
   backButton();
 }
 
 function drawMalwaRegion() {
   drawGradientBackground(color(75, 38, 54), color(210, 125, 88));
   regionTitle("MALWA REGION");
-  drawPlaceCard(180, 220, "Ujjain");
-  drawPlaceCard(720, 220, "Omkareshwar");
+  drawPlaceCard(180, 220, "Ujjain", ujjain);
+  drawPlaceCard(720, 220, "Omkareshwar", omkareshwar);
   backButton();
 }
 
@@ -360,7 +374,7 @@ function regionTitle(title) {
   textStyle(NORMAL);
 }
 
-function drawPlaceCard(x, y, title) {
+function drawPlaceCard(x, y, title, img) {  // img comes as parameter
   let w = 260;
   let h = 200;
 
@@ -381,19 +395,12 @@ function drawPlaceCard(x, y, title) {
   } else {
     fill(255, 248, 232, 238);
   }
-
   rect(x, y, w, h, 24);
 
-  fill(54, 74, 92);
-  rect(x + 18, y + 18, w - 36, 95, 18);
-
-  fill(255, 220, 130, 95);
-  ellipse(x + w / 2, y + 65, 105, 55);
-
-  fill(255);
-  textStyle(BOLD);
-  textSize(20);
-  text("IMAGE", x + w / 2, y + 65);
+  // ✅ NO "let img" here — just use the parameter directly
+  if (img) {
+    image(img, x + 18, y + 18, w - 36, 95);
+  }
 
   fill(38, 34, 32);
   textSize(25);
