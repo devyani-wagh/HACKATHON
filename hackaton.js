@@ -31,21 +31,20 @@ function preload() {
   fort3 = loadImage("assets/fort3.jpeg");
   fort4 = loadImage("assets/fort4.jpeg");
   fort5 = loadImage("assets/fort5.jpeg");
-  palace1 = loadImage(assets/palace1.jpeg);
-  palace2 = loadImage(assets/palace2.jpeg);
-  palace3 = loadImage(assets/palace3.jpeg);
-  palace4 = loadImage(assets/palace4.jpeg);
-  palace5 = loadImage(assets/palace5.jpeg);
-  o1 = loadImage(assets/o1.jpeg);
-  o2 = loadImage(assets/o2.jpeg);
-  o3 = loadImage(assets/o3.jpeg);
-  o4 = loadImage(assets/o4.jpeg);
-  o5 = loadImage(assets/o5.jpeg);
-  s1 = loadImage(assets/s1.jpeg);
-  s2 = loadImage(assets/s2.jpeg);
-  s3 = loadImage(assets/s3.jpeg);
-  s4 = loadImage(assets/s4.jpeg);
-  s5 = loadImage(assets/s5.jpeg);
+  palace1 = loadImage("assets/palace1.jpeg");
+  palace2 = loadImage("assets/palace2.jpeg");
+  palace3 = loadImage("assets/palace3.jpeg");
+  palace4 = loadImage("assets/palace4.jpeg");
+  o1 = loadImage("assets/o1.jpeg");
+  o2 = loadImage("assets/o2.jpeg");
+  o3 = loadImage("assets/o3.jpeg");
+  o4 = loadImage("assets/o4.jpeg");
+  o5 = loadImage("assets/o5.jpeg");
+  s1 = loadImage("assets/s1.jpeg");
+  s2 = loadImage("assets/s2.jpeg");
+  s3 = loadImage("assets/s3.jpeg");
+  s4 = loadImage("assets/s4.jpeg");
+  s5 = loadImage("assets/s5.jpeg");
  b1 = loadImage("assets/b1.jpeg");
  b2 = loadImage("assets/b2.jpeg");
  b3 = loadImage("assets/b3.jpeg");
@@ -71,7 +70,6 @@ function preload() {
  om3 = loadImage("assets/om3.jpeg");
  om4 = loadImage("assets/om4.jpeg");
  om5 = loadImage("assets/om5.jpeg");
-  clickSound = loadSound("assets/click.wav");
 }
 function setup() {
   createCanvas(1200, 750);
@@ -102,7 +100,7 @@ function initPlaces() {
       name: "Jai Vilas Palace", 
       wiki: "https://en.wikipedia.org/wiki/Jai_Vilas_Palace",
       region: "gwalior",
-      images: [jaiVilas], 
+      images: [jaiVilas, palace1, palace2, palace3, palace4], 
       slideIndex: 0,
       theme: [color(55, 32, 25), 
       color(175, 105, 65)],
@@ -118,7 +116,7 @@ function initPlaces() {
       name: "Orchha", 
       wiki: "https://en.wikipedia.org/wiki/Orchha",
       region: "gwalior",
-      images: [orchha], 
+      images: [orchha, o1, o2, o3, o4, o5], 
       slideIndex: 0,
       theme: [color(55, 32, 25), 
       color(175, 105, 65)],
@@ -134,7 +132,7 @@ function initPlaces() {
       name: "Sanchi Stupa", 
       wiki: "https://en.wikipedia.org/wiki/Sanchi_Stupa",
       region: "bhopal",
-      images: [sanchi], 
+      images: [sanchi, s1, s2, s3, s4, s5], 
       slideIndex: 0,
       theme: [color(18, 48, 78), 
       color(55, 150, 170)],
@@ -150,7 +148,7 @@ function initPlaces() {
       name: "Bhimbetka Caves", 
       wiki: "https://en.wikipedia.org/wiki/Bhimbetka",
       region: "bhopal",
-      images: [bhimbetka], 
+      images: [bhimbetka, b1, b2, b3, b4, b5], 
       slideIndex: 0,
       theme: [color(18, 48, 78), 
       color(55, 150, 170)],
@@ -166,7 +164,7 @@ function initPlaces() {
       name: "Dhuandhar Falls", 
       wiki: "https://en.wikipedia.org/wiki/Dhuandhar_Falls",
       region: "jabalpur",
-      images: [dhuandhar], 
+      images: [dhuandhar, d1, d2, d3, d4, d5], 
       slideIndex: 0,
       theme: [color(20, 68, 55), color(90, 175, 140)],
       history: [
@@ -181,7 +179,7 @@ function initPlaces() {
       name: "Marble Rocks", 
       wiki: "https://en.wikipedia.org/wiki/Marble_Rocks",
       region: "jabalpur",
-      images: [marble], 
+      images: [marble, m1, m2, m3, m4, m5], 
       slideIndex: 0,
       theme: [color(20, 68, 55), 
       color(90, 175, 140)],
@@ -197,7 +195,7 @@ function initPlaces() {
       name: "Ujjain", 
       wiki: "https://en.wikipedia.org/wiki/Ujjain",
       region: "malwa",
-      images: [ujjain], 
+      images: [ujjain, u1, u2, u3, u4, u5], 
       slideIndex: 0,
       theme: [color(75, 38, 54), 
       color(210, 125, 88)],
@@ -213,7 +211,7 @@ function initPlaces() {
       name: "Omkareshwar", 
       wiki: "https://en.wikipedia.org/wiki/Omkareshwar",
       region: "malwa",
-      images: [omkareshwar], 
+      images: [omkareshwar, om1, om2, om3, om4, om5], 
       slideIndex: 0,
       theme: [color(75, 38, 54), 
       color(210, 125, 88)],
