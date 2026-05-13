@@ -2,9 +2,9 @@ let gameState = "home";
 let startButtonHover = false;
 let buttonPulse = 0;
 var gwaliorFort, jaiVilas, orchha, sanchi, bhimbetka, dhuandhar, marble, ujjain, omkareshwar,
-fort1,fort2,fort3,fort4,fort5;
+fort1,fort2,fort3,fort4,fort5,palace1,palace2,palace3,palace4,palace5,o1,o2,o3,o4,o5,s1,s2,s3,s4,s5,b1,b2,b3,b4,b5,d1,d2,d3,d4,d5,m1,m2,m3,m4,m5,
+u1,u2,u3,u4,u5,om1,om2,om3,om4,om5;
 var clickSound;
-
 let currentPlace = null;
 let slideTimer = 0;
 let slideDuration = 180;
@@ -13,7 +13,6 @@ let leftArrowHover = false;
 let rightArrowHover = false;
 let paraHeight = 90;
 let places = {};
-
 function preload() {
   gwaliorFort = loadImage("assets/gwaliorfort.jpeg",
     () => console.log("image loaded!"),
@@ -32,16 +31,54 @@ function preload() {
   fort3 = loadImage("assets/fort3.jpeg");
   fort4 = loadImage("assets/fort4.jpeg");
   fort5 = loadImage("assets/fort5.jpeg");
+  palace1 = loadImage(assets/palace1.jpeg);
+  palace2 = loadImage(assets/palace2.jpeg);
+  palace3 = loadImage(assets/palace3.jpeg);
+  palace4 = loadImage(assets/palace4.jpeg);
+  palace5 = loadImage(assets/palace5.jpeg);
+  o1 = loadImage(assets/o1.jpeg);
+  o2 = loadImage(assets/o2.jpeg);
+  o3 = loadImage(assets/o3.jpeg);
+  o4 = loadImage(assets/o4.jpeg);
+  o5 = loadImage(assets/o5.jpeg);
+  s1 = loadImage(assets/s1.jpeg);
+  s2 = loadImage(assets/s2.jpeg);
+  s3 = loadImage(assets/s3.jpeg);
+  s4 = loadImage(assets/s4.jpeg);
+  s5 = loadImage(assets/s5.jpeg);
+ b1 = loadImage("assets/b1.jpeg");
+ b2 = loadImage("assets/b2.jpeg");
+ b3 = loadImage("assets/b3.jpeg");
+ b4 = loadImage("assets/b4.jpeg");
+ b5 = loadImage("assets/b5.jpeg");
+ d1 = loadImage("assets/d1.jpeg");
+ d2 = loadImage("assets/d2.jpeg");
+ d3 = loadImage("assets/d3.jpeg");
+ d4 = loadImage("assets/d4.jpeg");
+ d5 = loadImage("assets/d5.jpeg");
+ m1 = loadImage("assets/m1.jpeg");
+ m2 = loadImage("assets/m2.jpeg");
+ m3 = loadImage("assets/m3.jpeg");
+ m4 = loadImage("assets/m4.jpeg");
+ m5 = loadImage("assets/m5.jpeg");
+ u1 = loadImage("assets/u1.jpeg");
+ u2 = loadImage("assets/u2.jpeg");
+ u3 = loadImage("assets/u3.jpeg");
+ u4 = loadImage("assets/u4.jpeg");
+ u5 = loadImage("assets/u5.jpeg");
+ om1 = loadImage("assets/om1.jpeg");
+ om2 = loadImage("assets/om2.jpeg");
+ om3 = loadImage("assets/om3.jpeg");
+ om4 = loadImage("assets/om4.jpeg");
+ om5 = loadImage("assets/om5.jpeg");
   clickSound = loadSound("assets/click.wav");
 }
-
 function setup() {
   createCanvas(1200, 750);
   textAlign(CENTER, CENTER);
   textFont("Georgia");
   initPlaces();
 }
-
 function initPlaces() {
   places = {
     gwaliorFort: {
@@ -761,7 +798,6 @@ function mousePressed() {
     }
   }
 }
-
 function checkCardClick(x, y, placeKey) {
   let w = 260, h = 200;
   if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
@@ -772,7 +808,6 @@ function checkCardClick(x, y, placeKey) {
     gameState = "detail";
   }
 }
-
 function mouseWheel(event) {
   if (gameState === "detail") {
     let hx=650, hy=100, hw=510, hh=550;
