@@ -248,7 +248,6 @@ function drawStartButton() {
   vertex(980,390);
   vertex(860,520);
   vertex(680,390);
-
   endShape(CLOSE);
   // MALWA
 
@@ -324,14 +323,19 @@ function mousePressed() {
   } 
   else if (gameState === "map") {
    
-    if (mouseX > 20 && mouseX < 120 && mouseY > 20 && mouseY < 60) gameState = "home";
-   
-    if(mouseX > 170 && mouseX < 430 && mouseY > 140 && mouseY < 320) gameState = "gwalior";
-    else if(mouseX > 320 && mouseX < 680 && mouseY > 240 && mouseY < 450) gameState = "bhopal";
-    else if(mouseX > 620 && mouseX < 980 && mouseY > 250 && mouseY < 520) gameState = "jabalpur";
-    else if(mouseX > 120 && mouseX < 500 && mouseY > 280 && mouseY < 600) gameState = "malwa";
+    if (mouseX > 20 && mouseX < 120 && mouseY > 20 && mouseY < 60)
+       gameState = "home";
+    if(mouseX > 170 && mouseX < 430 && mouseY > 140 && mouseY < 320) 
+      gameState = "gwalior";
+    else if(mouseX > 320 && mouseX < 680 && mouseY > 240 && mouseY < 450)
+       gameState = "bhopal";
+    else if(mouseX > 620 && mouseX < 980 && mouseY > 250 && mouseY < 520) 
+      gameState = "jabalpur";
+    else if(mouseX > 120 && mouseX < 500 && mouseY > 280 && mouseY < 600) 
+      gameState = "malwa";
   } 
   else {
-    if (mouseX > 20 && mouseX < 120 && mouseY > 20 && mouseY < 60) gameState = "map";
+    if (mouseX > 20 && mouseX < 120 && mouseY > 20 && mouseY < 60) 
+      gameState = "map";
   }
 }
