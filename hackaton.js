@@ -4,7 +4,7 @@ let buttonPulse = 0;
 var gwaliorFort, jaiVilas, orchha, sanchi, bhimbetka, dhuandhar, marble, ujjain, omkareshwar,
 fort1,fort2,fort3,fort4,fort5,palace1,palace2,palace3,palace4,palace5,o1,o2,o3,o4,o5,s1,s2,s3,s4,s5,b1,b2,b3,b4,b5,d1,d2,d3,d4,d5,m1,m2,m3,m4,m5,
 u1,u2,u3,u4,u5,om1,om2,om3,om4,om5;
-var clickSound;
+var clickSound,mp;
 let currentPlace = null;
 let slideTimer = 0;
 let slideDuration = 180;
@@ -71,6 +71,7 @@ function preload() {
  om4 = loadImage("assets/om4.jpeg");
  om5 = loadImage("assets/om5.jpeg");
  clickSound = loadSound('assets/clicksound.wav');
+ mp = loadSound('assets/mp.mp3');
 }
 function setup() {
   createCanvas(1200, 750);
@@ -751,31 +752,47 @@ function playClick() {
 function mousePressed() {
   if (gameState === "home") {
     let bx = width / 2 - 160, by = 500, bw = 320, bh = 82;
-    if (mouseX > bx && mouseX < bx + bw && mouseY > by && mouseY < by + bh) {
-      playClick()
-      gameState = "map";
-    }
+  if (mouseX > bx && mouseX < bx + bw && mouseY > by && mouseY < by + bh) {
+  playClick();
+
+  userStartAudio();
+
+  if (mp && mp.isLoaded() && !mp.isPlaying()) {
+    mp.setVolume(0.4);
+    mp.loop();
+  }
+
+  gameState = "map";
+}
   }
   else if (gameState === "map") {
     if (mouseX>20  && mouseX<130 && mouseY>20  && mouseY<62)  { 
       playClick()
+      if (mp && mp.isPlaying()) mp.stop();
       gameState = "home"; }
     else if (mouseX>170 && mouseX<430 && mouseY>140 && mouseY<320) { 
       playClick()
+      if (mp && mp.isPlaying()) mp.stop();
       gameState = "gwalior"; }
     else if (mouseX>320 && mouseX<680 && mouseY>240 && mouseY<450) { 
       playClick()
+      if (mp && mp.isPlaying()) mp.stop();
       gameState = "bhopal"; }
     else if (mouseX>620 && mouseX<980 && mouseY>250 && mouseY<520) { 
       playClick()
+      if (mp && mp.isPlaying()) mp.stop();
       gameState = "jabalpur"; }
     else if (mouseX>120 && mouseX<500 && mouseY>280 && mouseY<600) { 
       playClick()
+      if (mp && mp.isPlaying()) mp.stop();
       gameState = "malwa"; }
   }
   else if (gameState === "gwalior") {
     if (mouseX>20 && mouseX<130 && mouseY>20 && mouseY<62) { 
       playClick()
+      if (mp && !mp.isPlaying()) {
+    mp.loop();
+      }
       gameState = "map"; return; }
     checkCardClick(80,  220, "gwaliorFort");
     checkCardClick(470, 220, "jaiVilas");
@@ -784,6 +801,9 @@ function mousePressed() {
   else if (gameState === "bhopal") {
     if (mouseX>20 && mouseX<130 && mouseY>20 && mouseY<62) { 
       playClick()
+       if (mp && !mp.isPlaying()) {
+    mp.loop();
+      }
       gameState = "map"; return; }
     checkCardClick(180, 220, "sanchi");
     checkCardClick(720, 220, "bhimbetka");
@@ -791,6 +811,9 @@ function mousePressed() {
   else if (gameState === "jabalpur") {
     if (mouseX>20 && mouseX<130 && mouseY>20 && mouseY<62) { 
       playClick()
+       if (mp && !mp.isPlaying()) {
+    mp.loop();
+      }
       gameState = "map"; return; }
     checkCardClick(180, 220, "dhuandhar");
     checkCardClick(720, 220, "marble");
@@ -798,6 +821,9 @@ function mousePressed() {
   else if (gameState === "malwa") {
     if (mouseX>20 && mouseX<130 && mouseY>20 && mouseY<62) { 
       playClick()
+       if (mp && !mp.isPlaying()) {
+    mp.loop();
+      }
       gameState = "map"; return; }
     checkCardClick(180, 220, "ujjain");
     checkCardClick(720, 220, "omkareshwar");
